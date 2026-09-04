@@ -1,5 +1,11 @@
 # CVMindAI
 
+## 🌐 Live Demo
+
+**[Visit CVMindAi](https://cvmindai.netlify.app/)**
+
+---
+
 > **Build, edit, and perfect your resume with AI.**
 
 CVMindAI is an AI-powered resume building platform that helps users create professional, ATS-friendly resumes using modern templates and an interactive AI assistant. Users can build resumes from scratch, edit LaTeX directly, or simply describe changes in natural language and let the AI update the resume for them.
