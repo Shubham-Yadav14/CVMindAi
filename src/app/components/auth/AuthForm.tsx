@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { Eye, EyeOff, FileText, LoaderCircle, Moon, Sun } from "lucide-react";
 import useModeStore from "@/app/lib/useModeStore";
 import { useSnackbar } from "@/app/components/ui/SnackbarProvider";
+import Image from "next/image";
+import Favicon from "../../favicon.ico"
 
 type AuthMode = "login" | "signup";
 
@@ -201,7 +203,7 @@ export default function AuthForm({
                 lightMode ? "bg-teal-100 text-teal-700" : "bg-teal-950 text-teal-300"
               }`}
             >
-              <FileText className="h-4 w-4" />
+              <Image src={Favicon} alt="CVMindAi Logo"/>
             </div>
 
             <span className="text-base font-semibold">CVMindAi</span>

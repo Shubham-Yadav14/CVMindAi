@@ -9,6 +9,8 @@ import {
   Archive,
 } from "lucide-react";
 import useModeStore from "@/app/lib/useModeStore";
+import Image from "next/image";
+import Favicon from "../../favicon.ico"
 
 import { usePathname, useRouter } from "next/navigation";
 
@@ -37,7 +39,7 @@ function Sidebar() {
     >
       <div className="mb-8 flex items-center gap-3 px-2">
         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-700 text-white shadow-[0_8px_20px_rgba(15,118,110,0.22)]">
-          <FileText size={22} />
+          <Image src={Favicon} alt="CVMindAi Logo"/>
         </div>
 
         <div>
