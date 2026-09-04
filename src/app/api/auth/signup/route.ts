@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
 
       await sendAuthEmail(
         normalizedEmail,
-        "Verify your ResumeIQ email",
+        "Verify your CVMindAi email",
         `Welcome ${name.trim()}!
 
 Please verify your email address by opening the link below:
@@ -141,7 +141,7 @@ If you did not create this account, you can safely ignore this email.`,
 
     await sendAuthEmail(
       normalizedEmail,
-      "Verify your ResumeIQ email",
+      "Verify your CVMindAi email",
       `Welcome ${name.trim()}!
 
 Please verify your email address by opening the link below:

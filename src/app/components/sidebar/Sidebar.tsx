@@ -46,7 +46,7 @@ function Sidebar() {
               lightMode ? "text-slate-950" : "text-slate-100"
             }`}
           >
-            ResumeIQ
+            CVMindAi
           </h1>
           <p
             className={`text-xs ${

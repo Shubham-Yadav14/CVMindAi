@@ -33,7 +33,7 @@ SMTP_PORT=587
 SMTP_SECURE=false
 SMTP_USER=your-smtp-user
 SMTP_PASS=your-smtp-password
-SMTP_FROM="ResumeIQ <no-reply@example.com>"
+SMTP_FROM="CVMindAi <no-reply@example.com>"
 ```
 
 Add `${NEXT_PUBLIC_APP_URL}/api/auth/google/callback` as an authorized redirect URI in Google Cloud Console. Google OAuth accounts are verified by Google automatically. SMTP credentials must be configured for email/password signup and password reset to work.

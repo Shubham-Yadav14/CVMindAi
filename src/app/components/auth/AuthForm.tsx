@@ -204,7 +204,7 @@ export default function AuthForm({
               <FileText className="h-4 w-4" />
             </div>
 
-            <span className="text-base font-semibold">ResumeIQ</span>
+            <span className="text-base font-semibold">CVMindAi</span>
           </div>
 
           {/* Theme Toggle */}

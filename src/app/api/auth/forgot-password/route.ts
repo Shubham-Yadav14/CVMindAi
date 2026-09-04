@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
       const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? request.nextUrl.origin;
       await sendAuthEmail(
         user.email,
-        "Reset your ResumeIQ password",
+        "Reset your CVMindAi password",
         `Open this link to choose a new password:\n\n${appUrl}/reset-password?token=${token}\n\nThis link expires in 15 minutes.`,
       );
     }

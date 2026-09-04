@@ -65,7 +65,7 @@ export async function GET(request: NextRequest) {
       // Send new verification email
       await sendAuthEmail(
         normalizedEmail,
-        "New ResumeIQ email verification link",
+        "New CVMindAi email verification link",
         `Hi ${user.name}!
 
 Your previous email verification link has expired.
