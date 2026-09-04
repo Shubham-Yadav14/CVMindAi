@@ -18,7 +18,8 @@ export async function POST(request: NextRequest) {
       user.resetPasswordToken = createHash("sha256").update(token).digest("hex");
       user.resetPasswordExpires = new Date(Date.now() + 15 * 60 * 1000);
       await user.save();
-      const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? request.nextUrl.origin;
+      const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+      if (!appUrl) throw new Error("NEXT_PUBLIC_APP_URL is not configured");
       await sendAuthEmail(
         user.email,
         "Reset your CVMindAi password",

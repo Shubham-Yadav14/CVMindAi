@@ -5,15 +5,9 @@ import connectDB from "@/app/lib/mongodb";
 import Chat from "@/app/models/Chat";
 import Project from "@/app/models/Project";
 
-const GROQ_URL =
-  process.env.GROQ_URL ??
-  "https://api.groq.com/openai/v1/chat/completions";
-
-const GROQ_MODEL =
-  process.env.GROQ_MODEL ??
-  "openai/gpt-oss-120b";
-
-const GROQ_API_KEY = process.env.GROQ_API_KEY ?? "";
+const GROQ_URL = process.env.GROQ_URL;
+const GROQ_MODEL = process.env.GROQ_MODEL;
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
 const GROQ_TIMEOUT_MS = 30_000;
 
@@ -157,13 +151,13 @@ export async function POST(
     // 3. Check API key
     // --------------------------------------------------
 
-    if (!GROQ_API_KEY) {
-      console.error("GROQ_API_KEY is missing");
+    if (!GROQ_API_KEY || !GROQ_URL || !GROQ_MODEL) {
+      console.error("Groq environment variables are missing");
 
       return Response.json(
         {
           error:
-            "GROQ_API_KEY is not configured on the server.",
+            "GROQ_API_KEY, GROQ_URL and GROQ_MODEL must be configured on the server.",
         },
         { status: 500 }
       );

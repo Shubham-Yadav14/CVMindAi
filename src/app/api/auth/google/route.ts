@@ -1,12 +1,16 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { getGoogleAuthUrl } from "@/app/lib/google";
 import crypto from "crypto";
 import { cookies } from "next/headers";
 
-export async function GET(request: NextRequest) {
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? request.nextUrl.origin;
+export async function GET() {
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL;
 
-  if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
+  if (
+    !appUrl ||
+    !process.env.GOOGLE_CLIENT_ID ||
+    !process.env.GOOGLE_CLIENT_SECRET
+  ) {
     return NextResponse.redirect(
       `${appUrl}/login?error=google_not_configured`,
     );

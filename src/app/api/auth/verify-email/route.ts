@@ -8,7 +8,14 @@ export async function GET(request: NextRequest) {
   const token = request.nextUrl.searchParams.get("token");
   const email = request.nextUrl.searchParams.get("email");
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? request.nextUrl.origin;
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+
+  if (!appUrl) {
+    return NextResponse.json(
+      { error: "NEXT_PUBLIC_APP_URL is not configured" },
+      { status: 500 },
+    );
+  }
 
   // Missing parameters
   if (!token || !email) {

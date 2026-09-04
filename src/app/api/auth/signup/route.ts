@@ -78,7 +78,8 @@ export async function POST(request: NextRequest) {
       // Send new verification email
       // -----------------------------
 
-      const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? request.nextUrl.origin;
+      const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+      if (!appUrl) throw new Error("NEXT_PUBLIC_APP_URL is not configured");
 
       const verificationUrl =
         `${appUrl}/verify_email` +
@@ -132,7 +133,8 @@ If you did not create this account, you can safely ignore this email.`,
     // Send verification email
     // -----------------------------
 
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? request.nextUrl.origin;
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+    if (!appUrl) throw new Error("NEXT_PUBLIC_APP_URL is not configured");
 
     const verificationUrl =
       `${appUrl}/verify_email` +

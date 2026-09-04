@@ -14,7 +14,14 @@ export async function GET(request: NextRequest) {
   const state = searchParams.get("state");
   const error = searchParams.get("error");
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000";
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+
+  if (!appUrl) {
+    return NextResponse.json(
+      { error: "NEXT_PUBLIC_APP_URL is not configured" },
+      { status: 500 },
+    );
+  }
 
   if (error) {
     return NextResponse.redirect(`${appUrl}/login?error=google_auth_cancelled`);
