@@ -1,8 +1,8 @@
-# Resumio
+# ResumeIQ
 
 > **Build, edit, and perfect your resume with AI.**
 
-Resumio is an AI-powered resume building platform that helps users create professional, ATS-friendly resumes using modern templates and an interactive AI assistant. Users can build resumes from scratch, edit LaTeX directly, or simply describe changes in natural language and let the AI update the resume for them.
+ResumeIQ is an AI-powered resume building platform that helps users create professional, ATS-friendly resumes using modern templates and an interactive AI assistant. Users can build resumes from scratch, edit LaTeX directly, or simply describe changes in natural language and let the AI update the resume for them.
 
 ---
 
@@ -51,7 +51,7 @@ Resumio is an AI-powered resume building platform that helps users create profes
 * Archive projects
 * Soft delete projects
 * Permanently hard delete projects
-* Restore archived/deleted projects where applicable
+* Restore archived projects where applicable
 * Manage resumes from a centralized dashboard
 
 ### 📥 Export & Download
@@ -59,7 +59,7 @@ Resumio is an AI-powered resume building platform that helps users create profes
 * Generate production-ready PDF resumes
 * Download resumes directly
 * Preserve professional formatting during export
-* Easy sharing and offline access
+* Easy offline access
 
 ---
 
@@ -131,7 +131,7 @@ Once the resume is ready, generate and download the final PDF.
 
 ## 🤖 AI Editing Flow
 
-Resumio's AI editor is designed around a conversational workflow rather than traditional form-based resume editing.
+ResumeIQ's AI editor is designed around a conversational workflow rather than traditional form-based resume editing.
 
 ```text
 User Request
@@ -158,13 +158,13 @@ Render Resume
 Live Preview
 ```
 
-This allows users to make complex resume changes without having to understand LaTeX.
+Users can make complex resume changes without needing to understand LaTeX.
 
 ---
 
 ## 🗂️ Project Lifecycle
 
-Resumio provides flexible project management for resumes.
+ResumeIQ provides flexible project management for resumes.
 
 ```text
                 ┌─────────────┐
@@ -202,7 +202,7 @@ OAuth Provider
 Authentication
  │
  ▼
-Resumio
+ResumeIQ
  │
  ▼
 Dashboard
@@ -334,7 +334,7 @@ Clone the repository:
 
 ```bash
 git clone <repository-url>
-cd resumio
+cd resumeiq
 ```
 
 Install dependencies:
@@ -392,7 +392,7 @@ http://localhost:3000
 
 ## 🔒 Security
 
-Resumio implements several security-focused authentication and project-management mechanisms, including:
+ResumeIQ implements several security-focused authentication and project-management mechanisms, including:
 
 * Email verification
 * Secure password reset flow
@@ -409,7 +409,7 @@ Resumio implements several security-focused authentication and project-managemen
 
 ## 🧩 Architecture
 
-At a high level, Resumio consists of four major layers:
+At a high level, ResumeIQ consists of four major layers:
 
 ```text
 ┌───────────────────────────────────────────┐
@@ -461,9 +461,9 @@ Potential future improvements include:
 
 ## 🎯 Vision
 
-Resumio aims to make professional resume creation as simple as having a conversation.
+ResumeIQ aims to make professional resume creation as simple as having a conversation.
 
-Instead of struggling with formatting, wording, and LaTeX, users can focus on their career story while Resumio handles the complexity behind the scenes.
+Instead of struggling with formatting, wording, and LaTeX, users can focus on their career story while ResumeIQ handles the complexity behind the scenes.
 
 > **Your experience. Your career. Your resume — powered by AI.**
 
@@ -488,6 +488,6 @@ This project is currently private / proprietary unless otherwise specified.
 
 ---
 
-## ⭐ Resumio
+## ⭐ ResumeIQ
 
 **Build better resumes. Edit with AI. Get career-ready.**
