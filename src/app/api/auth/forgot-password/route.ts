@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
       await user.save();
       const appUrl = process.env.NEXT_PUBLIC_APP_URL;
       if (!appUrl) throw new Error("NEXT_PUBLIC_APP_URL is not configured");
-      await sendAuthEmail(
+      sendAuthEmail(
         user.email,
         "Reset your CVMindAi password",
         `Open this link to choose a new password:\n\n${appUrl}/reset-password?token=${token}\n\nThis link expires in 15 minutes.`,

@@ -86,7 +86,7 @@ export async function POST(request: NextRequest) {
         `?email=${encodeURIComponent(normalizedEmail)}` +
         `&token=${encodeURIComponent(verificationToken)}`;
 
-      await sendAuthEmail(
+      sendAuthEmail(
         normalizedEmail,
         "Verify your CVMindAi email",
         `Welcome ${name.trim()}!
@@ -141,7 +141,7 @@ If you did not create this account, you can safely ignore this email.`,
       `?email=${encodeURIComponent(normalizedEmail)}` +
       `&token=${encodeURIComponent(verificationToken)}`;
 
-    await sendAuthEmail(
+    sendAuthEmail(
       normalizedEmail,
       "Verify your CVMindAi email",
       `Welcome ${name.trim()}!

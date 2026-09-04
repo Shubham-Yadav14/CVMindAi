@@ -70,7 +70,7 @@ export async function GET(request: NextRequest) {
         `&token=${encodeURIComponent(newVerificationToken)}`;
 
       // Send new verification email
-      await sendAuthEmail(
+      sendAuthEmail(
         normalizedEmail,
         "New CVMindAi email verification link",
         `Hi ${user.name}!
