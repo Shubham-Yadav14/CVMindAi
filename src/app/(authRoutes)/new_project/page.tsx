@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import useModeStore from "@/app/lib/useModeStore";
 import { useSnackbar } from "@/app/components/ui/SnackbarProvider";
 import Skeleton from "@/app/components/ui/Skeleton";
+import Image from "next/image";
 
 interface Template {
   id: string;
@@ -166,7 +167,7 @@ export default function NewProjectPage() {
                     className={`group overflow-hidden rounded-lg border text-left shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl ${selectedTemplate === template.id ? "border-indigo-500 ring-2 ring-indigo-500" : lightMode ? "border-slate-200 bg-white hover:border-indigo-300" : "border-slate-700 bg-slate-800 hover:border-indigo-500"}`}
                   >
                     <div className="relative aspect-3/4 overflow-hidden bg-slate-100">
-                      <img
+                      <Image
                         src={template.image}
                         alt={`${template.name} template preview`}
                         className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
