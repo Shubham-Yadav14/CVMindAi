@@ -1,8 +1,8 @@
-# ResumeIQ
+# CVMindAI
 
 > **Build, edit, and perfect your resume with AI.**
 
-ResumeIQ is an AI-powered resume building platform that helps users create professional, ATS-friendly resumes using modern templates and an interactive AI assistant. Users can build resumes from scratch, edit LaTeX directly, or simply describe changes in natural language and let the AI update the resume for them.
+CVMindAI is an AI-powered resume building platform that helps users create professional, ATS-friendly resumes using modern templates and an interactive AI assistant. Users can build resumes from scratch, edit LaTeX directly, or simply describe changes in natural language and let the AI update the resume for them.
 
 ---
 
@@ -14,52 +14,59 @@ ResumeIQ is an AI-powered resume building platform that helps users create profe
 * Email & password authentication
 * Email verification for new accounts
 * Resend verification email functionality
-* Forgot password flow with secure email-based reset
-* Password reset and account security
+* Forgot password functionality
+* Secure password reset through email
+* Protected user sessions
 
 ### 📄 Resume Builder
 
-* Create resumes from scratch
-* Choose from a growing pool of professionally designed templates
+* Create multiple resumes
+* Choose from a pool of professionally designed templates
 * Template-based resume generation
 * Live resume preview
 * Direct LaTeX code editing
+* Real-time resume updates
 * Generate and download resumes as PDF
-* Save resume changes automatically
 
 ### 🤖 AI Resume Assistant
 
 * Conversational AI-powered resume editing
-* Describe changes using natural language
-* AI understands the requested modifications
+* Edit your resume using natural language
+* AI understands the requested changes
 * Streams updated LaTeX code in real time
-* Automatically updates the resume preview
-* Improve and rewrite resume sections with AI
-* Modify formatting, content, structure, and styling through chat
+* Automatically applies AI-generated changes to the resume
+* Improve and rewrite resume sections
+* Modify formatting, structure, content, and styling using AI
+
+For example:
+
+> **"Make my experience section more concise and highlight my leadership experience."**
+
+CVMindAI analyzes the existing resume and streams the updated LaTeX code directly into the editor.
 
 ### 📝 LaTeX Editor
 
 * Full manual control over resume source code
 * Edit LaTeX directly
-* Preview changes instantly
-* Combine manual editing with AI-assisted editing
-* Quickly experiment with formatting and layouts
+* Live resume preview
+* Combine manual and AI-powered editing
+* Modify layouts, formatting, and content
 
 ### 📁 Resume Management
 
-* Save multiple resumes/projects
+* Create and manage multiple resume projects
 * Archive projects
 * Soft delete projects
+* Restore archived projects
 * Permanently hard delete projects
-* Restore archived projects where applicable
-* Manage resumes from a centralized dashboard
+* Manage all resumes from a centralized dashboard
 
 ### 📥 Export & Download
 
 * Generate production-ready PDF resumes
 * Download resumes directly
-* Preserve professional formatting during export
-* Easy offline access
+* Preserve professional formatting
+* Export resumes whenever needed
 
 ---
 
@@ -73,13 +80,13 @@ ResumeIQ is an AI-powered resume building platform that helps users create profe
                  │
                  ▼
         ┌──────────────────┐
-        │   Choose a       │
-        │    Template      │
+        │ Choose a Resume  │
+        │     Template     │
         └────────┬─────────┘
                  │
                  ▼
         ┌──────────────────────────┐
-        │      AI Resume Editor    │
+        │     CVMindAI Editor      │
         │                          │
         │  ┌────────┐  ┌────────┐  │
         │  │ AI Chat│  │ LaTeX  │  │
@@ -99,7 +106,9 @@ ResumeIQ is an AI-powered resume building platform that helps users create profe
 
 ### 1. Authenticate
 
-Create an account using OAuth or email/password authentication. Email/password users receive a verification email before accessing protected functionality.
+Create an account using OAuth or email/password authentication.
+
+Users registering with email and password receive a verification email before accessing protected functionality.
 
 ### 2. Choose a Template
 
@@ -107,31 +116,31 @@ Select a resume template from the available template library.
 
 ### 3. Build Your Resume
 
-After selecting a template, enter the AI-powered resume editor where you can:
+After selecting a template, you'll enter the CVMindAI editor where you can:
 
 * Edit the LaTeX source manually
 * Ask the AI assistant to make changes
-* Preview the resume in real time
+* Preview your resume in real time
 
 ### 4. Edit With AI
 
-Simply tell the AI what you want to change.
+Describe what you want to change using natural language.
 
 For example:
 
-> "Make my experience section more concise and highlight my leadership skills."
+> "Add a stronger summary focused on software engineering."
 
-The AI processes the request and **streams the updated LaTeX code**, which is then applied to the resume and reflected in the preview.
+CVMindAI processes the request and **streams the updated LaTeX code**, which is automatically applied to the resume and reflected in the live preview.
 
 ### 5. Export
 
-Once the resume is ready, generate and download the final PDF.
+Once your resume is ready, generate and download the final PDF.
 
 ---
 
 ## 🤖 AI Editing Flow
 
-ResumeIQ's AI editor is designed around a conversational workflow rather than traditional form-based resume editing.
+CVMindAI is built around a conversational resume editing experience.
 
 ```text
 User Request
@@ -158,13 +167,13 @@ Render Resume
 Live Preview
 ```
 
-Users can make complex resume changes without needing to understand LaTeX.
+Users don't need to understand LaTeX to make advanced changes to their resume.
 
 ---
 
 ## 🗂️ Project Lifecycle
 
-ResumeIQ provides flexible project management for resumes.
+CVMindAI provides flexible project management for resume projects.
 
 ```text
                 ┌─────────────┐
@@ -202,7 +211,7 @@ OAuth Provider
 Authentication
  │
  ▼
-ResumeIQ
+CVMindAI
  │
  ▼
 Dashboard
@@ -276,7 +285,7 @@ Login
 ### AI
 
 * AI-powered conversational editing
-* Streaming responses
+* Streaming AI responses
 * LaTeX-aware resume modification
 
 ### Resume Generation
@@ -297,20 +306,20 @@ Login
 
 ## 📁 Core Concepts
 
-| Feature                | Description                       |
-| ---------------------- | --------------------------------- |
-| **Templates**          | Pre-designed resume layouts       |
-| **Projects**           | Individual resume workspaces      |
-| **AI Assistant**       | Conversational resume editing     |
-| **LaTeX Editor**       | Direct source-code editing        |
-| **Live Preview**       | Real-time resume visualization    |
-| **PDF Export**         | Download production-ready resumes |
-| **Archive**            | Hide inactive projects            |
-| **Soft Delete**        | Temporarily remove projects       |
-| **Hard Delete**        | Permanently remove projects       |
-| **OAuth**              | Social authentication             |
-| **Email Verification** | Verify email-based accounts       |
-| **Password Reset**     | Recover forgotten passwords       |
+| Feature                | Description                            |
+| ---------------------- | -------------------------------------- |
+| **Templates**          | Professionally designed resume layouts |
+| **Projects**           | Individual resume workspaces           |
+| **AI Assistant**       | Conversational resume editing          |
+| **LaTeX Editor**       | Direct source-code editing             |
+| **Live Preview**       | Real-time resume visualization         |
+| **PDF Export**         | Download production-ready resumes      |
+| **Archive**            | Store inactive projects                |
+| **Soft Delete**        | Temporarily remove projects            |
+| **Hard Delete**        | Permanently remove projects            |
+| **OAuth**              | Social authentication                  |
+| **Email Verification** | Verify email-based accounts            |
+| **Password Reset**     | Recover forgotten passwords            |
 
 ---
 
@@ -334,7 +343,7 @@ Clone the repository:
 
 ```bash
 git clone <repository-url>
-cd resumeiq
+cd cvmindai
 ```
 
 Install dependencies:
@@ -392,24 +401,24 @@ http://localhost:3000
 
 ## 🔒 Security
 
-ResumeIQ implements several security-focused authentication and project-management mechanisms, including:
+CVMindAI implements security-focused authentication and project-management mechanisms, including:
 
 * Email verification
 * Secure password reset flow
 * OAuth authentication
 * Protected application routes
-* Expiring verification/reset tokens
+* Expiring verification and reset tokens
 * Soft deletion before permanent deletion
 * Server-side authentication checks
 * Environment-based secret management
 
-> Never commit `.env`, API keys, OAuth secrets, SMTP passwords, or other credentials to the repository.
+> **Never commit `.env`, API keys, OAuth secrets, SMTP passwords, or other credentials to the repository.**
 
 ---
 
 ## 🧩 Architecture
 
-At a high level, ResumeIQ consists of four major layers:
+At a high level, CVMindAI consists of four major layers:
 
 ```text
 ┌───────────────────────────────────────────┐
@@ -442,8 +451,6 @@ At a high level, ResumeIQ consists of four major layers:
 
 ## 📌 Roadmap
 
-Potential future improvements include:
-
 * [ ] More resume templates
 * [ ] AI-powered ATS scoring
 * [ ] Job-description-based resume optimization
@@ -461,9 +468,9 @@ Potential future improvements include:
 
 ## 🎯 Vision
 
-ResumeIQ aims to make professional resume creation as simple as having a conversation.
+CVMindAI aims to make professional resume creation as simple as having a conversation.
 
-Instead of struggling with formatting, wording, and LaTeX, users can focus on their career story while ResumeIQ handles the complexity behind the scenes.
+Instead of struggling with formatting, wording, and LaTeX, users can focus on their career story while CVMindAI handles the complexity behind the scenes.
 
 > **Your experience. Your career. Your resume — powered by AI.**
 
@@ -488,6 +495,6 @@ This project is currently private / proprietary unless otherwise specified.
 
 ---
 
-## ⭐ ResumeIQ
+## ⭐ CVMindAI
 
 **Build better resumes. Edit with AI. Get career-ready.**
