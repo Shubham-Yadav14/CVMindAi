@@ -1,11 +1,15 @@
 "use client"
 import React, { useState } from "react";
-import { User, LogOut, ChevronDown, Moon, Sun } from "lucide-react";
+import { User, LogOut, ChevronDown, Moon, Sun, Menu } from "lucide-react";
 import { useRouter } from "next/navigation";
 import useModeStore from "@/app/lib/useModeStore";
 import { useSnackbar } from "@/app/components/ui/SnackbarProvider";
 
-function Header() {
+interface HeaderProps {
+  onMenuClick?: () => void;
+}
+
+function Header({ onMenuClick = () => undefined }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
   const router = useRouter();
@@ -41,16 +45,26 @@ function Header() {
 
   return (
     <header
-      className={`flex h-[10vh] w-full shrink-0 items-center justify-between border-b px-4 transition-colors duration-300 sm:px-6 ${lightMode
+      className={`flex min-h-16 w-full shrink-0 items-center justify-between border-b px-3 transition-colors duration-300 sm:px-6 ${lightMode
           ? "border-slate-200 bg-white/90"
           : "border-slate-700 bg-[#14202a]/95"
         }`}
     >
-      <div className={`hidden text-sm sm:block ${lightMode ? "text-slate-500" : "text-slate-400"}`}>
+      <div className="flex min-w-0 items-center gap-2">
+        <button
+          type="button"
+          onClick={onMenuClick}
+          aria-label="Open sidebar"
+          className={`focus-ring flex h-10 w-10 shrink-0 items-center justify-center rounded-lg md:hidden ${lightMode ? "text-slate-700 hover:bg-slate-100" : "text-slate-200 hover:bg-slate-800"}`}
+        >
+          <Menu size={21} />
+        </button>
+        <div className={`hidden truncate text-sm sm:block ${lightMode ? "text-slate-500" : "text-slate-400"}`}>
         Your workspace <span className="mx-1 text-slate-300">/</span> Resume studio
+        </div>
       </div>
 
-      <div className=" flex  items-center gap-3">
+      <div className="flex items-center gap-1 sm:gap-3">
         
         {/* Right side - User */}
         <div className="relative">
@@ -140,7 +154,7 @@ function Header() {
           onClick={toggleMode}
           type="button"
           aria-label={lightMode ? "Switch to dark mode" : "Switch to light mode"}
-          className={`mr-3 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors duration-200 ${lightMode
+          className={`mr-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors duration-200 sm:mr-3 ${lightMode
               ? "border-slate-200 bg-slate-50 text-slate-700 hover:bg-slate-100"
               : "border-slate-700 bg-slate-800 text-yellow-200 hover:bg-slate-700"
             }`}

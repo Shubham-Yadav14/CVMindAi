@@ -578,7 +578,7 @@ export default function ProjectEditorPage() {
 
   return (
     <main
-      className={`flex h-screen min-h-145 flex-col overflow-hidden ${background}`}
+      className={`flex h-screen  flex-col overflow-y-scroll noSideBar ${background}`}
     >
       {/* HEADER */}
       <header
@@ -637,7 +637,7 @@ export default function ProjectEditorPage() {
       >
         {/* LEFT SIDEBAR */}
         <aside
-          className={`flex min-h-0 flex-col border-b lg:border-b-0 lg:border-r ${
+          className={`flex min-h-[70vh] flex-col border-b lg:border-b-0 lg:border-r ${
             lightMode
               ? "border-slate-200 bg-white"
               : "border-slate-800 bg-[#172131]"
@@ -672,7 +672,7 @@ export default function ProjectEditorPage() {
           {/* CHAT MESSAGES */}
           <div
             ref={chatMessagesRef}
-            className="flex min-h-24 flex-1 flex-col gap-4 overflow-y-auto noSideBar px-5 pb-5 text-sm lg:min-h-0"
+            className="flex  flex-1 flex-col gap-4 overflow-y-auto noSideBar px-5 pb-5 text-sm lg:min-h-48"
           >
             {messages.map((item) => (
               <div
@@ -824,7 +824,7 @@ export default function ProjectEditorPage() {
         </button>
 
         {/* RIGHT SIDE EDITOR */}
-        <section className="flex min-h-0 flex-col p-3 sm:p-5">
+        <section className="flex min-h-[70vh] flex-col p-3 sm:p-5">
           <div
             className={`flex min-h-0 flex-1 flex-col overflow-hidden rounded-xl border shadow-sm ${panel}`}
           >

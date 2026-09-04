@@ -141,7 +141,7 @@ export default function ProjectsView({ status, title }: ProjectsViewProps) {
           current.filter((id) => data.projects.some((project) => project.id === id)),
         );
       } catch (fetchError) {
-        if (fetchError instanceof DOMException && fetchError.name === "AbortError") return;
+        if (controller.signal.aborted) return;
         showSnackbar(fetchError instanceof Error ? fetchError.message : "Unable to load projects. Please try again.", "error");
       } finally {
         if (!controller.signal.aborted) setLoading(false);
@@ -265,10 +265,10 @@ export default function ProjectsView({ status, title }: ProjectsViewProps) {
 
   return (
     <main
-      className={`app-surface min-h-[calc(100vh-4rem)] px-4 py-7 transition-colors duration-300 sm:px-8 sm:py-9`}
+      className={`app-surface min-h-full px-3 py-6 transition-colors duration-300 sm:px-8 sm:py-9`}
     >
       <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
-        <div><p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-teal-600">Workspace</p><h1 className={`text-3xl font-semibold tracking-tight ${textClass}`}>{title}</h1></div>
+        <div><p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-teal-600">Workspace</p><h1 className={`text-2xl font-semibold tracking-tight sm:text-3xl ${textClass}`}>{title}</h1></div>
         <span className={`text-sm ${mutedClass}`}>{pagination.total} {pagination.total === 1 ? "project" : "projects"}</span>
       </div>
       <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -283,7 +283,7 @@ export default function ProjectsView({ status, title }: ProjectsViewProps) {
             className={`focus-ring h-11 w-full rounded-xl border pl-10 pr-4 text-sm outline-none transition-colors ${lightMode ? "border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:border-teal-500" : "border-slate-600 bg-[#17232d] text-white placeholder:text-slate-400 focus:border-teal-400"}`}
           />
         </div>
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto sm:justify-end">
           {selectedProjects.length > 1 && status === "active" && (
               <button type="button" onClick={() => void updateSelectedProjects("archived")} disabled={Boolean(bulkAction)} className={`flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold shadow-sm transition disabled:opacity-50 ${lightMode ? "border-amber-300 bg-amber-50 text-amber-800 hover:border-amber-400 hover:bg-amber-100" : "border-amber-700 bg-amber-950/40 text-amber-200 hover:border-amber-500 hover:bg-amber-900/60"}`}>
               <Archive size={16} /> {bulkAction === "archived" ? "Archiving..." : "Archive selected"}
@@ -309,7 +309,7 @@ export default function ProjectsView({ status, title }: ProjectsViewProps) {
               </button>
             </>
           )}
-          {status === "active" && <button type="button" onClick={() => router.push("/new_project")} className="rounded-xl bg-teal-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-800">New project</button>}
+          {status === "active" && <button type="button" onClick={() => router.push("/new_project")} className="rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-800 sm:px-5">New project</button>}
         </div>
       </div>
 

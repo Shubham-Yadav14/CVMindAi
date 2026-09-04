@@ -27,20 +27,23 @@ export default function NewProjectPage() {
 
   useEffect(() => {
     if (step !== "template") return;
+    const controller = new AbortController();
     const loadTemplates = async () => {
       setLoading(true);
       try {
-        const response = await fetch("/api/templates");
+        const response = await fetch("/api/templates", { signal: controller.signal });
         const data = await response.json();
         if (!response.ok) throw new Error(data.error ?? "Unable to load templates");
         setTemplates(data.templates);
       } catch (loadError) {
+        if (controller.signal.aborted) return;
         showSnackbar(loadError instanceof Error ? loadError.message : "Unable to load templates", "error");
       } finally {
-        setLoading(false);
+        if (!controller.signal.aborted) setLoading(false);
       }
     };
     void loadTemplates();
+    return () => controller.abort();
   }, [showSnackbar, step]);
 
   const chooseName = (event: React.FormEvent<HTMLFormElement>) => {
@@ -170,6 +173,8 @@ export default function NewProjectPage() {
                       <Image
                         src={template.image}
                         alt={`${template.name} template preview`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
                       />
                       {selectedTemplate === template.id && (

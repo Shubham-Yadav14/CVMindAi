@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { FilePlus2, FolderOpen, LayoutTemplate, Sparkles } from "lucide-react";
 import Link from "next/link";
 import useModeStore from "./lib/useModeStore";
@@ -8,14 +9,26 @@ import Sidebar from "./components/sidebar/Sidebar";
 
 export default function HomePage() {
   const { lightMode } = useModeStore();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const panel = lightMode ? "border-slate-200 bg-white" : "border-slate-700 bg-[#17232d]";
   const muted = lightMode ? "text-slate-600" : "text-slate-400";
 
+  useEffect(() => {
+    if (!sidebarOpen) return;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [sidebarOpen]);
+
   return (
-    <div className="flex h-screen w-full overflow-hidden bg-[var(--background)]">
-      <Sidebar />
+    <div className="flex h-dvh w-full overflow-hidden bg-[var(--background)]">
+      {sidebarOpen && (
+        <button type="button" aria-label="Close sidebar" onClick={() => setSidebarOpen(false)} className="fixed inset-0 z-40 bg-slate-950/45 md:hidden" />
+      )}
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <div className="flex min-w-0 flex-1 flex-col">
-        <Header />
+        <Header onMenuClick={() => setSidebarOpen(true)} />
         <main className="app-surface min-h-0 flex-1 overflow-auto px-5 py-8 sm:px-10 sm:py-10">
           <div className="mx-auto max-w-6xl">
             <div className="mb-10 max-w-2xl">

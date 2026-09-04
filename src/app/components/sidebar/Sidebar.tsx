@@ -5,7 +5,6 @@ import {
   FolderOpen,
   Trash2,
   User,
-  FileText,
   Archive,
 } from "lucide-react";
 import useModeStore from "@/app/lib/useModeStore";
@@ -14,10 +13,19 @@ import Favicon from "../../favicon.ico"
 
 import { usePathname, useRouter } from "next/navigation";
 
-function Sidebar() {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+function Sidebar({ isOpen = false, onClose = () => undefined }: SidebarProps) {
   const { lightMode } = useModeStore();
   const router = useRouter();
   const pathname = usePathname();
+  const navigateTo = (path: string) => {
+    onClose();
+    router.push(path);
+  };
 
   const isActive = (path: string) => pathname === path;
 
@@ -31,7 +39,9 @@ function Sidebar() {
 
   return (
     <aside
-      className={`flex h-screen w-64 shrink-0 flex-col border-r px-4 py-6 transition-colors duration-300 ${
+      className={`fixed inset-y-0 left-0 z-50 flex h-dvh w-[min(18rem,calc(100vw-2rem))] shrink-0 flex-col border-r px-4 py-6 transition-[transform,background-color,border-color] duration-300 md:static md:z-auto md:w-64 md:translate-x-0 ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      } ${
         lightMode
           ? "border-slate-200 bg-white"
           : "border-slate-700 bg-[#14202a]"
@@ -62,7 +72,7 @@ function Sidebar() {
 
       {/* New Project */}
       <button
-      onClick={()=>{router.push("/new_project")}}
+      onClick={() => navigateTo("/new_project")}
         className="focus-ring mb-6 flex w-full items-center justify-center gap-2 rounded-xl bg-teal-700 px-4 py-3 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(15,118,110,0.2)] transition-all duration-200 hover:bg-teal-800 hover:shadow-md active:scale-[0.98]"
       >
         <Plus size={18} />
@@ -70,7 +80,7 @@ function Sidebar() {
       </button>
 
       {/* Navigation */}
-      <nav className="flex flex-1 flex-col gap-1">
+      <nav className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto">
         <p
           className={`mb-2 px-3 text-xs font-semibold uppercase tracking-wider ${
             lightMode ? "text-slate-400" : "text-slate-500"
@@ -80,7 +90,7 @@ function Sidebar() {
         </p>
 
         <button
-          onClick={() => router.push("/projects")}
+          onClick={() => navigateTo("/projects")}
           className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
             isActive("/projects") ? activeItemClass : inactiveItemClass
           }`}
@@ -90,7 +100,7 @@ function Sidebar() {
         </button>
 
         <button
-          onClick={() => router.push("/archieves")}
+          onClick={() => navigateTo("/archieves")}
           className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
             isActive("/archieves") ? activeItemClass : inactiveItemClass
           }`}
@@ -99,7 +109,7 @@ function Sidebar() {
           Archieved
         </button>
         <button
-          onClick={() => router.push("/trash")}
+          onClick={() => navigateTo("/trash")}
           className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
             isActive("/trash") ? activeItemClass : inactiveItemClass
           }`}
@@ -116,7 +126,7 @@ function Sidebar() {
         }`}
       >
         <button
-          onClick={() => router.push("/account")}
+          onClick={() => navigateTo("/account")}
           className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
             isActive("/account") ? activeItemClass : inactiveItemClass
           }`}
